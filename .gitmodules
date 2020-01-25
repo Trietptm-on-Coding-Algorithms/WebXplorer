@@ -1,0 +1,3 @@
+[submodule "WAVM"]
+	path = WAVM
+	url = https://github.com/WAVM/WAVM.git
