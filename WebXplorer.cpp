@@ -18,11 +18,10 @@
 #include <fstream>
 #include <vector>
 
-#include <auto.hpp>
-
 #include <WAVM/IR/Types.h>
 #include <WAVM/Runtime/Intrinsics.h>
 #include <WAVM/Runtime/Runtime.h>
+#include <auto.hpp>
 #include "WAVM/Lib/Runtime/RuntimePrivate.h"
 
 #include "WebXplorer.h"

@@ -1,0 +1,36 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    env:
+      IDASDK: /opt/idasdk73
+      IDABIN: /opt/idapro-7.3
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Environment set-up
+        run: |
+          sudo apt-get update && \
+          sudo apt-get install -y build-essential cmake ninja-build llvm-dev zlib1g-dev
+      - name: Decrypt IDA SDK
+        env:
+          IDA_SDK_PASSPHRASE: ${{ secrets.IDA_SDK_PASSPHRASE }}
+        run: |
+          gpg --quiet --batch --yes --decrypt --passphrase="$IDA_SDK_PASSPHRASE" \
+            --output $HOME/idasdk73.tar.gz idasdk73.tar.gz.gpg && \
+          tar -C /opt -xzf $HOME/idasdk73.tar.gz
+      - name: C/C++
+        run: |
+          mkdir -p build && \
+          mkdir -p $IDABIN && \
+          cd build && \
+          cmake -G Ninja .. && \
+          ninja
