@@ -1,4 +1,4 @@
-# WebXplorer
+# WebXplorer ![C/C++ CI](https://github.com/meme/WebXplorer/workflows/C/C++%20CI/badge.svg?branch=master)
 
 IDA WebAssembly scripting environment
 
