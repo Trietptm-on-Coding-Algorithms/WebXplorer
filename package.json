@@ -1,0 +1,25 @@
+{
+  "name": "WebXplorer",
+  "version": "0.1.0",
+  "description": "IDA WebAssembly SDK",
+  "scripts": {
+    "asbuild:untouched": "asc src/index.ts -b build/untouched.wasm -t build/untouched.wat --validate --sourceMap --debug",
+    "asbuild:optimized": "asc src/index.ts -b build/optimized.wasm -t build/optimized.wat --validate --sourceMap --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meme/WebXplorer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meme/WebXplorer/issues"
+  },
+  "homepage": "https://github.com/meme/WebXplorer#readme",
+  "devDependencies": {
+    "assemblyscript": "^0.9",
+    "typescript": "^3.8.3"
+  }
+}
